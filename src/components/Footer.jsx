@@ -1,35 +1,19 @@
+import { SocialLinks } from "../data";
+import SingleNavLink from "./SingleNavLink";
+import SingleSocialLink from "./SingleSocialLink";
+import { pageLinks } from "../data"
+
 const Footer = () => {
     return(<footer className="section footer">
     <ul className="footer-links">
-      <li>
-        <a href="#home" className="footer-link">home</a>
-      </li>
-      <li>
-        <a href="#about" className="footer-link">about</a>
-      </li>
-      <li>
-        <a href="#services" className="footer-link">services</a>
-      </li>
-      <li>
-        <a href="#featured" className="footer-link">featured</a>
-      </li>
+        {pageLinks.map((link) => {
+            return < SingleNavLink id={link.id} reference={link.href} text={link.text} type="footer-link" />
+        })}
     </ul>
     <ul className="footer-icons">
-      <li>
-        <a href="https://www.twitter.com" target="_blank" rel="noreferrer" className="footer-icon"
-          ><i className="fab fa-facebook"></i
-        ></a>
-      </li>
-      <li>
-        <a href="https://www.twitter.com" target="_blank" rel="noreferrer" className="footer-icon"
-          ><i className="fab fa-twitter"></i
-        ></a>
-      </li>
-      <li>
-        <a href="https://www.twitter.com" target="_blank" rel="noreferrer" className="footer-icon"
-          ><i className="fab fa-squarespace"></i
-        ></a>
-      </li>
+        {SocialLinks.map((link) => {
+            return < SingleSocialLink id={link.id} reference={link.href} icon={link.icon} type="footer-link"/>
+        })}
     </ul>
     <p className="copyright">
       copyright &copy; Backroads travel tours company
